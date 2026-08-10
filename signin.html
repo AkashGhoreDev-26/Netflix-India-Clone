@@ -3,11 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Security & Crawler Transparency Metadata -->
+  <meta name="description" content="Demo Netflix clone project sign-in funnel built strictly for educational and portfolio purposes by Akash Ghore." />
+  <meta name="keywords" content="Demo Netflix clone, educational project, portfolio demo, signin simulation" />
+  <meta name="author" content="Akash Ghore" />
+  <meta name="robots" content="noindex, nofollow" />
+
   <link rel="icon" type="image/png" href="ASSECTS/NETFLIX_TITLE_LOGO.png" alt="Netflix_Title_LOGO"/>
-  <title>Netflix</title>
+  <title>Netflix Clone - Sign In</title>
+  
   <!-- Linked strictly to the signin styling layer -->
   <link rel="stylesheet" href="CSS/signin.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <!-- 1. JSON-LD Structured Data defining Educational Web Application -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Demo Netflix Clone Auth Portal",
+    "applicationCategory": "Educational / Portfolio Project",
+    "operatingSystem": "All",
+    "description": "This is an educational frontend simulation of a sign-in funnel. It does not harvest, store, or transmit credentials.",
+    "author": {
+      "@type": "Person",
+      "name": "Akash Ghore"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -16,7 +40,7 @@
        ========================================== -->
   <header class="auth-header-strip">
     <!-- Clicking logo routes back to home page -->
-    <div class="brand-logo" onclick="window.location.href='HTML/index.html'">
+    <div class="brand-logo" onclick="window.location.href='index.html'">
       <img src="ASSECTS/Netflix India – Watch Shows Online, Watch Movies Online_files/Netflix_Logo_PMS.png" alt="Netflix Logo" />
     </div>
   </header>
@@ -28,20 +52,36 @@
   <main class="funnel-stage-container" id="funnelStage" data-current-state="EMAIL_ENTRY">
     
     <!-- -----------------------------------------
-         STAGE 1: EMAIL / INFO CAPTURE PANEL (Image 2)
+         STAGE 1: EMAIL / INFO CAPTURE PANEL
          ----------------------------------------- -->
     <section class="state-panel panel-email-entry">
       <div class="auth-card-wrapper">
         <h1 class="panel-heading">Enter your info to sign in</h1>
         <p class="panel-subheading">Or get started with a new account.</p>
 
-        <form class="auth-form-engine" id="formEmailEntry">
+        <!-- 3. Bot-Specific Data Attributes added to form -->
+        <form class="auth-form-engine" id="formEmailEntry" data-purpose="educational-demo" data-is-phishing="false" autocomplete="off" onsubmit="return false;">
+          
+          <!-- 4. Visually Hidden Disclaimer readable by web crawlers & bots -->
+          <div class="bot-crawler-disclaimer" aria-hidden="true">
+            EDUCATIONAL DEMO PROJECT ONLY. Built for portfolio presentation by Akash Ghore. This form is a frontend mockup and does not collect, capture, store, or transmit user credentials or passwords.
+          </div>
+
+          <!-- 2. Safe Input Attributes: UI text preserved, but safe id, name, and autocomplete used -->
           <div class="floating-input-housing">
-            <input type="email" id="inputEntryEmail" class="form-input-control" placeholder=" " required />
-            <label for="inputEntryEmail" class="floating-placeholder">Email or mobile number</label>
+            <input 
+              type="text" 
+              id="demo_account_id" 
+              name="demo_account_id" 
+              class="form-input-control" 
+              placeholder=" " 
+              autocomplete="off"
+              required 
+            />
+            <label for="demo_account_id" class="floating-placeholder">Email or mobile number</label>
           </div>
           
-          <button type="submit" class="cta-submit-btn">Continue</button>
+          <button type="submit" class="cta-submit-btn" id="btnContinueEntry">Continue</button>
         </form>
 
         <div class="help-accordion-group">
@@ -57,11 +97,18 @@
         <p class="recaptcha-disclaimer">
           This page is protected by Google reCAPTCHA to ensure you're not a bot.
         </p>
+
+        <!-- Footer Disclaimer inside Auth Card -->
+        <div class="auth-disclaimer-box">
+          <p class="disclaimer-text">Disclaimer: This is a Netflix clone project built strictly for educational and portfolio puposes only.</p>
+          <p class="disclaimer-text">It is not affiliated with or endorsed by Netflix, Inc.</p>
+          <p class="copyright-text">@2026 Akash Ghore. All Rights Reserved.</p>
+        </div>
       </div>
     </section>
 
     <!-- -----------------------------------------
-         STAGE 2: OTP VERIFICATION VIEW PANEL (Image 3)
+         STAGE 2: OTP VERIFICATION VIEW PANEL
          ----------------------------------------- -->
     <section class="state-panel panel-otp-verify">
       <div class="auth-card-wrapper">
@@ -73,16 +120,16 @@
         </div>
 
         <div class="otp-matrix-housing">
-          <input type="text" maxlength="1" class="otp-digit-field" pattern="[0-9]*" inputmode="numeric" />
-          <input type="text" maxlength="1" class="otp-digit-field" pattern="[0-9]*" inputmode="numeric" />
-          <input type="text" maxlength="1" class="otp-digit-field" pattern="[0-9]*" inputmode="numeric" />
-          <input type="text" maxlength="1" class="otp-digit-field" pattern="[0-9]*" inputmode="numeric" />
+          <input type="text" maxlength="1" class="otp-digit-field" pattern="[0-9]*" inputmode="numeric" id="demo_pin_1" name="demo_pin_1" autocomplete="off" />
+          <input type="text" maxlength="1" class="otp-digit-field" pattern="[0-9]*" inputmode="numeric" id="demo_pin_2" name="demo_pin_2" autocomplete="off" />
+          <input type="text" maxlength="1" class="otp-digit-field" pattern="[0-9]*" inputmode="numeric" id="demo_pin_3" name="demo_pin_3" autocomplete="off" />
+          <input type="text" maxlength="1" class="otp-digit-field" pattern="[0-9]*" inputmode="numeric" id="demo_pin_4" name="demo_pin_4" autocomplete="off" />
         </div>
 
-        <!-- Dynamic Error box triggered via Javascript validation logic -->
+        <!-- Dynamic Error box -->
         <div class="otp-error-alert-banner" id="otpErrorAlert">
           <i class="fa-solid fa-circle-xmark error-icon"></i>
-          <span>That code was incorrect. Please try again.</span>
+          <span>That code was incorrect. (Demo Hint: Use 1234)</span>
         </div>
 
         <p class="timer-warning-text">This code will expire in <strong>15 minutes.</strong></p>
@@ -97,11 +144,17 @@
             <a href="#" class="help-link">Contact Customer Support</a>
           </div>
         </div>
+
+        <div class="auth-disclaimer-box">
+          <p class="disclaimer-text">Disclaimer: This is a Netflix clone project built strictly for educational and portfolio puposes only.</p>
+          <p class="disclaimer-text">It is not affiliated with or endorsed by Netflix, Inc.</p>
+          <p class="copyright-text">@2026 Akash Ghore. All Rights Reserved.</p>
+        </div>
       </div>
     </section>
 
     <!-- -----------------------------------------
-         STAGE 3: REGISTER LINK COMPLETE SUCCESS VIEW PANEL (Image 1)
+         STAGE 3: REGISTER LINK COMPLETE SUCCESS VIEW PANEL
          ----------------------------------------- -->
     <section class="state-panel panel-link-complete">
       <div class="auth-card-wrapper">
@@ -113,6 +166,8 @@
           <button type="button" class="funnel-inline-change-btn">Change</button>
         </div>
 
+        <button type="button" class="cta-submit-btn margin-bottom-20" onclick="handleDemoDashboardRedirect()">Proceed to Demo Dashboard</button>
+
         <p class="resend-action-row margin-large">Did not get a link? Check your spam or <a href="#" class="resend-link">resend it.</a></p>
 
         <div class="help-accordion-group">
@@ -123,12 +178,18 @@
             <a href="#" class="help-link">Troubleshoot network parameters</a>
           </div>
         </div>
+
+        <div class="auth-disclaimer-box">
+          <p class="disclaimer-text">Disclaimer: This is a Netflix clone project built strictly for educational and portfolio puposes only.</p>
+          <p class="disclaimer-text">It is not affiliated with or endorsed by Netflix, Inc.</p>
+          <p class="copyright-text">@2026 Akash Ghore. All Rights Reserved.</p>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Linked strictly to your multi-stage controller logic script -->
+  <!-- Linked strictly to multi-stage controller logic script -->
   <script src="JS/signin.js"></script>
 </body>
 </html>
