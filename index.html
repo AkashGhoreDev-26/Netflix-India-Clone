@@ -3,11 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="KOs2K0tkU5Do4_0OsZKwY9dUPIHyxndTZxp7ionYg-Y" />
+  <!-- Metadata identifying educational/demo status for search crawlers & security bots -->
+  <meta name="description" content="Demo Netflix clone project built strictly for educational and portfolio purposes by Akash Ghore. Not affiliated with Netflix, Inc." />
+  <meta name="keywords" content="Demo Netflix clone, educational project, portfolio demo, frontend clone" />
+  <meta name="author" content="Akash Ghore" />
+  <meta name="robots" content="noindex, nofollow" />
+  
   <link rel="icon" type="image/png" href="ASSECTS/NETFLIX_TITLE_LOGO.png" alt="Netflix_Title_LOGO"/>
   <link rel="stylesheet" href="CSS/index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <title>Netflix India - Watch TV Shows Online, Watch Movies Online</title>
+  <title>Netflix Clone (Demo) - Educational Project</title>
+
+  <!-- Hidden JSON-LD structured data for bot identification -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Demo Netflix Clone Portfolio",
+    "description": "This is a non-commercial Demo Netflix clone created strictly for educational and portfolio presentation purposes.",
+    "author": {
+      "@type": "Person",
+      "name": "Akash Ghore"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -42,7 +61,7 @@
           <h5>Ready to watch? Enter your email to start or renew your membership.</h5>
           
           <form class="lead-generation-form" onsubmit="localStorage.setItem('userSignupEmail', this.querySelector('.hero-email-input').value); window.location.href='signin.html'; return false;">
-            <input type="email" class="hero-email-input" placeholder="Email address" required />
+            <input type="email" class="hero-email-input" placeholder="demo.user@example.com" required />
             <button type="submit" class="cta-button">Try 30 Days for ₹0 <i class="fa-solid fa-chevron-right"></i></button>
           </form>
           <p class="sub-cta-note">New members only. Terms apply.</p>
@@ -291,7 +310,7 @@
     <h2 class="cta-banner-text">Ready to watch? Enter your email to create or restart your membership.</h2>
 
     <form class="lead-generation-form bottom-form" onsubmit="localStorage.setItem('userSignupEmail', this.querySelector('.bottom-email-input').value); window.location.href='signin.html'; return false;">
-      <input type="email" class="bottom-email-input hero-email-input" placeholder="Email address" required />
+      <input type="email" class="bottom-email-input hero-email-input" placeholder="demo.user@example.com" required />
       <button type="submit" class="cta-button">Try 30 Days for ₹0 <i class="fa-solid fa-chevron-right"></i></button>
     </form>
 
@@ -329,7 +348,13 @@
       <div class="language-selector">
         <i class="fa-solid fa-globe"></i> English <i class="fa-solid fa-caret-down"></i>
       </div>
-      <p class="copyright-text">Netflix India @2026</p>
+
+      <!-- Explicit Disclaimer & Copyright Notice -->
+      <div class="footer-disclaimer-block">
+        <p class="disclaimer-text">Disclaimer: This is a Netflix clone project built strictly for educational and portfolio puposes only.</p>
+        <p class="disclaimer-text">It is not affiliated with or endorsed by Netflix, Inc.</p>
+        <p class="copyright-text">@2026 Akash Ghore. All Rights Reserved.</p>
+      </div>
     </footer>
   </section>
 
