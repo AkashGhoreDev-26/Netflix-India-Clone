@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
   // --- CAROUSEL SCROLL CONTROLLER ---
   const movieSlider = document.getElementById("movieSlider");
   const scrollLeftAction = document.querySelector(".control-left");
@@ -70,14 +69,14 @@ window.openMovieModal = function(cardElement) {
     const year = cardElement.getAttribute("data-year") || "";
     const rating = cardElement.getAttribute("data-rating") || "";
     const type = cardElement.getAttribute("data-type") || "";
-    const genre = cardElement.getAttribute("data-genre") || "";
+    dataGenre = cardElement.getAttribute("data-genre") || "";
     const desc = cardElement.getAttribute("data-desc") || "";
 
     if (modalTitle) modalTitle.textContent = title;
     if (modalYear) modalYear.textContent = year;
     if (modalRating) modalRating.textContent = rating;
     if (modalType) modalType.textContent = type;
-    if (modalGenre) modalGenre.textContent = genre;
+    if (modalGenre) modalGenre.textContent = dataGenre;
     if (modalDescription) modalDescription.textContent = desc;
 
     if (modalBanner && image) {
