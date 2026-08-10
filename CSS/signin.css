@@ -1,65 +1,83 @@
 /* ==========================================================================
    GLOBAL CONFIGURATION RESETS & FLUID CANVAS DEFINITIONS
    ========================================================================== */
-   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: radial-gradient(circle at center, #2e080d 0%, #000000 100%);
-    background-color: #000000;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #ffffff;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
+  background: radial-gradient(circle at center, #2e080d 0%, #000000 100%);
+  background-color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   4. VISUALLY HIDDEN BOT & CRAWLER DISCLAIMER
+   Invisible to human users, accessible to security bots & web crawlers.
+   ========================================================================== */
+.bot-crawler-disclaimer {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* --- Dynamic Branding Header Fluid Layer --- */
 .auth-header-strip {
-    width: 100%;
-    padding: clamp(16px, 3vw, 28px) clamp(20px, 5vw, 60px);
-    z-index: 10;
+  width: 100%;
+  padding: clamp(16px, 3vw, 28px) clamp(20px, 5vw, 60px);
+  z-index: 10;
 }
 
 .brand-logo img {
-    height: clamp(30px, 4vw, 45px);
-    width: auto;
-    cursor: pointer;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  height: clamp(30px, 4vw, 45px);
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .brand-logo img:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 /* ==========================================================================
    ROUTING VIEW MANAGER CONTROLLER PANEL METRICS
    ========================================================================== */
 .funnel-stage-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centered vertically on large monitors for premium look */
-    padding: clamp(20px, 5vh, 60px) 24px;
-    width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(20px, 5vh, 60px) 24px;
+  width: 100%;
 }
 
 .state-panel {
-    display: none;
-    width: 100%;
-    max-width: 460px; /* Safe bounds container width */
-    margin: 0 auto;
-    animation: fadeInFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: none;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  animation: fadeInFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeInFade {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* State routing active maps classes */
@@ -71,282 +89,297 @@ body {
    CENTRAL AUTH STRUCTURE CARDS METRICS
    ========================================================================== */
 .auth-card-wrapper {
-    width: 100%;
-    padding: clamp(15px, 3vw, 30px) 0;
+  width: 100%;
+  padding: clamp(15px, 3vw, 30px) 0;
 }
 
 .panel-heading {
-    font-size: clamp(1.65rem, 4vw, 2.1rem);
-    font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
-    line-height: 1.25;
+  font-size: clamp(1.65rem, 4vw, 2.1rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
 }
 
 .panel-subheading {
-    font-size: clamp(0.95rem, 2vw, 1.05rem);
-    color: #cccccc;
-    line-height: 1.5;
-    margin-bottom: 24px;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  color: #cccccc;
+  line-height: 1.5;
+  margin-bottom: 24px;
 }
 
 /* --- Fluid Floating Layout Input Box Engine --- */
 .auth-form-engine {
-    width: 100%;
-    margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .floating-input-housing {
-    position: relative;
-    width: 100%;
-    background-color: rgba(22, 22, 22, 0.85);
-    border: 1px solid #666666;
-    border-radius: 4px;
-    height: clamp(54px, 7vh, 60px);
-    margin-bottom: 16px;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+  position: relative;
+  width: 100%;
+  background-color: rgba(22, 22, 22, 0.85);
+  border: 1px solid #666666;
+  border-radius: 4px;
+  height: clamp(54px, 7vh, 60px);
+  margin-bottom: 16px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .floating-input-housing:focus-within {
-    border-color: #ffffff;
-    background-color: rgba(32, 32, 32, 0.95);
-    box-shadow: 0 0 0 1px #ffffff;
+  border-color: #ffffff;
+  background-color: rgba(32, 32, 32, 0.95);
+  box-shadow: 0 0 0 1px #ffffff;
 }
 
 .form-input-control {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #ffffff;
-    padding: 22px 16px 6px 16px;
-    font-size: 1rem;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  padding: 22px 16px 6px 16px;
+  font-size: 1rem;
 }
 
 .floating-placeholder {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #8c8c8c;
-    font-size: 1rem;
-    pointer-events: none;
-    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), font-size 0.18s ease, top 0.18s ease;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8c8c8c;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), font-size 0.18s ease, top 0.18s ease;
 }
 
 .form-input-control:focus ~ .floating-placeholder,
 .form-input-control:not(:placeholder-shown) ~ .floating-placeholder {
-    top: 14px;
-    font-size: 0.75rem;
-    transform: translateY(0);
+  top: 14px;
+  font-size: 0.75rem;
+  transform: translateY(0);
 }
 
 /* --- Call To Action Control Triggers --- */
 .cta-submit-btn {
-    width: 100%;
-    height: clamp(46px, 6vh, 52px);
-    background-color: #E50914;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    font-size: clamp(0.95rem, 2vw, 1.05rem);
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    margin-top: 8px;
+  width: 100%;
+  height: clamp(46px, 6vh, 52px);
+  background-color: #E50914;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: 8px;
 }
 
 .cta-submit-btn:hover { background-color: #c40810; }
 .cta-submit-btn:active { transform: scale(0.995); }
+.margin-bottom-20 { margin-bottom: 20px; }
 
 /* ==========================================================================
    FLUID & STABLE RESPONSIVE 4-DIGIT OTP FIELDS GRID MATRIX
    ========================================================================== */
 .email-badge-display {
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.12);
-    border-radius: 4px;
-    padding: 14px clamp(12px, 3vw, 18px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: clamp(0.9rem, 2vw, 1rem);
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 14px clamp(12px, 3vw, 18px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .email-badge-display.static-badge {
-    background-color: rgba(255, 255, 255, 0.16);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .display-email-target {
-    word-break: break-all;
-    padding-right: 12px;
+  word-break: break-all;
+  padding-right: 12px;
 }
 
 .funnel-inline-change-btn {
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    text-decoration: underline;
-    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-    cursor: pointer;
-    white-space: nowrap;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-/* --- The Auto-Scaling Grid Fix --- */
+/* --- Auto-Scaling Grid --- */
 .otp-matrix-housing {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Divides into exactly 4 uniform fluid slots */
-    gap: clamp(8px, 3vw, 16px);            /* Shrinks spacing beautifully on tiny screens */
-    width: 100%;
-    max-width: 360px;                      /* Clean structural limits on wide computer setups */
-    margin: 0 auto 24px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(8px, 3vw, 16px);
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 24px auto;
 }
 
 .otp-digit-field {
-    width: 100%;
-    /* Maintain square proportion ratios responsively using dynamic aspect locks */
-    aspect-ratio: 1 / 1; 
-    background-color: rgba(22, 22, 22, 0.85);
-    border: 2px solid #f43f5e;
-    border-radius: 8px;
-    text-align: center;
-    font-size: clamp(1.3rem, 5vw, 1.8rem); /* Font scales seamlessly down to mobile devices */
-    font-weight: 700;
-    color: #ffffff;
-    outline: none;
-    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    padding: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1; 
+  background-color: rgba(22, 22, 22, 0.85);
+  border: 2px solid #f43f5e;
+  border-radius: 8px;
+  text-align: center;
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 0;
 }
 
 .otp-digit-field:focus {
-    border-color: #ffffff;
-    background-color: rgba(35, 35, 35, 0.95);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
+  border-color: #ffffff;
+  background-color: rgba(35, 35, 35, 0.95);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
 }
 
 /* ==========================================================================
    VALIDATION ALERTS & INFRASTRUCTURE FEEDBACK PANELS
    ========================================================================== */
 .otp-error-alert-banner {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: #f43f5e;
-    font-size: clamp(0.85rem, 1.8vw, 0.92rem);
-    margin-bottom: 24px;
-    font-weight: 500;
-    text-align: center;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #f43f5e;
+  font-size: clamp(0.85rem, 1.8vw, 0.92rem);
+  margin-bottom: 24px;
+  font-weight: 500;
+  text-align: center;
 }
 
 .timer-warning-text, .resend-action-row {
-    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
-    color: #aaaaaa;
-    margin-bottom: 12px;
-    text-align: left;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  color: #aaaaaa;
+  margin-bottom: 12px;
+  text-align: left;
 }
 
 .resend-action-row.margin-large {
-    margin-top: 24px;
-    margin-bottom: 32px;
+  margin-top: 24px;
+  margin-bottom: 32px;
 }
 
 .resend-link {
-    color: #ffffff;
-    text-decoration: underline;
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 /* ==========================================================================
-   DROPDOWN ACCORDION LINKS METRICS
+   DROPDOWN ACCORDION LINKS & FOOTER METRICS
    ========================================================================== */
 .help-accordion-group {
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 24px;
-    padding-bottom: 6px;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 24px;
+  padding-bottom: 6px;
 }
 
 .help-trigger-toggle {
-    background: transparent;
-    border: none;
-    color: #cccccc;
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    padding: 8px 0;
-    width: 100%;
+  background: transparent;
+  border: none;
+  color: #cccccc;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px 0;
+  width: 100%;
 }
 
 .help-trigger-toggle:hover { color: #ffffff; }
 .help-trigger-toggle .toggle-arrow {
-    font-size: 0.75rem;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.75rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .help-accordion-group:has(.open) .toggle-arrow {
-    transform: rotate(-180deg);
+  transform: rotate(-180deg);
 }
 
 .help-drawer-panel {
-    max-height: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: max-height 0.25s cubic-bezier(0, 1, 0, 1);
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: max-height 0.25s cubic-bezier(0, 1, 0, 1);
 }
 
 .help-drawer-panel.open {
-    max-height: 150px;
-    padding: 4px 0 14px 0;
-    transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+  max-height: 150px;
+  padding: 4px 0 14px 0;
+  transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
 }
 
 .help-link {
-    color: #aaaaaa;
-    font-size: clamp(0.85rem, 1.8vw, 0.92rem);
-    text-decoration: none;
+  color: #aaaaaa;
+  font-size: clamp(0.85rem, 1.8vw, 0.92rem);
+  text-decoration: none;
 }
 
 .help-link:hover { text-decoration: underline; color: #ffffff; }
+
 .recaptcha-disclaimer {
-    font-size: 0.78rem;
-    color: #737373;
-    line-height: 1.4;
+  font-size: 0.78rem;
+  color: #737373;
+  line-height: 1.4;
+}
+
+.auth-disclaimer-box {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.disclaimer-text {
+  color: #8c8c8c;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.copyright-text {
+  color: #737373;
+  font-size: 0.78rem;
+  margin-top: 8px;
 }
 
 /* ==========================================================================
    EXPLICIT MEDIA CONTEXT VIEWPORT BREAKPOINTS
    ========================================================================== */
-
-/* --- TABLETS & LANDSCAPE HANDSETS VIEWPORT --- */
 @media (max-width: 768px) {
-    .funnel-stage-container {
-        align-items: flex-start; /* Shift panels upwards on touch interfaces */
-        padding-top: 30px;
-    }
+  .funnel-stage-container {
+    align-items: flex-start;
+    padding-top: 30px;
+  }
 }
 
-/* --- COMPACT SMARTPHONES VIEWPORT (Screen bounds under 400px) --- */
 @media (max-width: 400px) {
-    .otp-matrix-housing {
-        gap: 6px; /* Restrict margins inside thin portrait widths */
-    }
-    .otp-digit-field {
-        border-width: 1.5px;
-        border-radius: 6px;
-    }
+  .otp-matrix-housing {
+    gap: 6px;
+  }
+  .otp-digit-field {
+    border-width: 1.5px;
+    border-radius: 6px;
+  }
 }
 
-/* --- HIGH RES LAPTOPS & DESKTOPS --- */
 @media (min-width: 1200px) {
-    .funnel-stage-container {
-        padding-bottom: 120px; /* Balance canvas distribution */
-    }
+  .funnel-stage-container {
+    padding-bottom: 120px;
+  }
 }
